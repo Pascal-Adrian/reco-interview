@@ -1,10 +1,7 @@
 import { useGetAppRowsQuery } from "../store/appRowsApi";
 
 const AppsDiscovery = () => {
-  const { data, error, isLoading } = useGetAppRowsQuery({
-    pageNumber: 1,
-    pageSize: 25,
-  });
+  const { data, error, isLoading } = useGetAppRowsQuery({});
 
   return (
     <div>
