@@ -7,7 +7,7 @@ export const appRowsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BASE_URL }),
   endpoints: (builder) => ({
     getAppRows: builder.query<AppRows, GetAppsRequest>({
-      query: ({ appName, category, pageNumber, pageSize }) => ({
+      query: ({ appName, category, pageNumber = 0, pageSize = 25 }) => ({
         method: "PUT",
         url: `v1/app-service/get-apps`,
         body: { appName, category, pageNumber, pageSize },
