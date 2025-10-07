@@ -1,9 +1,14 @@
 import type { RouteObject } from "react-router";
+import AppsDiscovery from "../pages/AppsDiscovery";
 
 const routes: RouteObject[] = [
   {
-    path: "/",
-    element: <div>Home</div>,
+    path: "/apps-discovery",
+    element: <AppsDiscovery />,
+  },
+  {
+    path: "/apps-inventory",
+    element: <div>Apps Inventory</div>,
   },
 ];
 
