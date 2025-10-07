@@ -1,25 +1,20 @@
 import { useGetAppRowsQuery } from "../store/appRowsApi";
+import SideMenuWrapper from "../components/SideMenuWrapper";
+import AppsList from "../components/AppsList";
 
-const AppsDiscovery = () => {
+const AppsDiscovery: React.FC = () => {
   const { data, error, isLoading } = useGetAppRowsQuery({});
 
   return (
-    <div>
-      <h1>Apps Discovery</h1>
+    <SideMenuWrapper>
       {isLoading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>Error occurred</p>
       ) : (
-        <ul>
-          {data?.appRows.map((row) => (
-            <li key={row.appId}>
-              {row.appName} - {row.category}
-            </li>
-          ))}
-        </ul>
+        <AppsList appRows={data} total={data?.total} />
       )}
-    </div>
+    </SideMenuWrapper>
   );
 };
 
